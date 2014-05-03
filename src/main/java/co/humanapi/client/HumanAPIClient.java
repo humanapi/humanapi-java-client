@@ -217,4 +217,24 @@ public class HumanAPIClient {
     public WeightEntity weightEntity() {
         return new WeightEntity(this);
     }
+
+    /** Builds ActivityEntity */
+    public ActivityEntity activityEntity() {
+        return new ActivityEntity(this);
+    }
+
+    /** Builds LocationEntity */
+    public LocationEntity locationEntity() {
+        return new LocationEntity(this);
+    }
+
+    /** Builds SleepEntity */
+    public SleepEntity sleepEntity() {
+        return new SleepEntity(this);
+    }
+
+    /** Builds GeneticTraitEntity */
+    public GeneticTraitEntity geneticTraitEntity() {
+        return new GeneticTraitEntity(this);
+    }
 }
