@@ -1,8 +1,6 @@
 package co.humanapi.client;
 
-import co.humanapi.client.entity.BloodGlucoseEntity;
-import co.humanapi.client.entity.HumanEntity;
-import co.humanapi.client.entity.ProfileEntity;
+import co.humanapi.client.entity.*;
 import gumi.builders.UrlBuilder;
 import us.monoid.json.JSONArray;
 import us.monoid.json.JSONException;
@@ -183,5 +181,15 @@ public class HumanAPIClient {
     /** Builds BloodGlucoseEntity */
     public BloodGlucoseEntity bloogGlucoseEntity() {
         return new BloodGlucoseEntity(this);
+    }
+
+    /** Builds BloodOxygenEntity */
+    public BloodOxygenEntity bloogOxygenEntity() {
+        return new BloodOxygenEntity(this);
+    }
+
+    /** Builds BloodPressureEntity */
+    public BloodPressureEntity bloogPressureEntity() {
+        return new BloodPressureEntity(this);
     }
 }
