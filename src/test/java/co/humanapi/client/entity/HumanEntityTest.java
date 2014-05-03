@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 public class HumanEntityTest {
     @Test
     public void testGet() throws Exception {
-        HumanAPIClient client = new HumanAPIClient("demo");
+        HumanAPIClient client = new HumanAPIClient();
         //client.setDebug(true);
         HumanEntity humanEntity = client.humanEntity();
 

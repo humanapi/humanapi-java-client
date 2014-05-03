@@ -1,21 +1,18 @@
 package co.humanapi.client;
 
+import co.humanapi.client.entity.BloodGlucoseEntity;
 import co.humanapi.client.entity.HumanEntity;
 import co.humanapi.client.entity.ProfileEntity;
 import gumi.builders.UrlBuilder;
+import us.monoid.json.JSONArray;
 import us.monoid.json.JSONException;
 import us.monoid.json.JSONObject;
-import us.monoid.web.Content;
-import us.monoid.web.JSONResource;
 import us.monoid.web.Resty;
 import us.monoid.web.TextResource;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -39,8 +36,12 @@ public class HumanAPIClient {
      * Constructor without params, access token will be taken
      * from HUMANAPI_ACCESS_TOKEN environment variable
      */
-    public HumanAPIClient() {
-        // TODO
+    public HumanAPIClient() throws HumanAPIException {
+        String accessToken = System.getenv("HUMANAPI_ACCESS_TOKEN");
+        if (accessToken == null || accessToken.isEmpty()) {
+            throw new HumanAPIException("You must create non empty HUMANAPI_ACCESS_TOKEN environment variable");
+        }
+        this.accessToken = accessToken;
     }
 
     /**
@@ -48,7 +49,10 @@ public class HumanAPIClient {
      *
      * @param accessToken access token to be used in the session
      */
-    public HumanAPIClient(String accessToken) {
+    public HumanAPIClient(String accessToken) throws HumanAPIException {
+        if (accessToken == null || accessToken.isEmpty()) {
+            throw new HumanAPIException("You must provide non empty `accessToken` parameter");
+        }
         this.accessToken = accessToken;
     }
 
@@ -74,7 +78,7 @@ public class HumanAPIClient {
     }
 
     /**
-     * Execute API GET request and return JSON result
+     * Execute API GET request and return JSONObject result
      *
      * @param path path to API resource
      * @return result returned from server
@@ -86,7 +90,7 @@ public class HumanAPIClient {
     }
 
     /**
-     * Execute API GET request and return JSON result
+     * Execute API GET request and return JSONObject result
      *
      * @param path path to API resource
      * @param parameters extra parameters
@@ -94,6 +98,50 @@ public class HumanAPIClient {
      * @throws HumanAPIException
      */
     public JSONObject execute(String path, Map<String, Object> parameters) throws HumanAPIException {
+        try {
+            return new JSONObject(executeBase(path, parameters));
+        } catch (JSONException e) {
+            throw new HumanAPIException(e);
+        }
+    }
+
+    /**
+     * Execute API GET request and return JSONObject result
+     *
+     * @param path path to API resource
+     * @return result returned from server
+     * @throws HumanAPIException
+     */
+    public JSONArray executeForArray(String path) throws HumanAPIException {
+        Map<String, Object> emptyParams = new HashMap<String, Object>();
+        return this.executeForArray(path, emptyParams);
+    }
+
+    /**
+     * Execute API GET request and return JSONArray result
+     *
+     * @param path path to API resource
+     * @param parameters extra parameters
+     * @return result returned from server
+     * @throws HumanAPIException
+     */
+    public JSONArray executeForArray(String path, Map<String, Object> parameters) throws HumanAPIException {
+        try {
+            return new JSONArray(executeBase(path, parameters));
+        } catch (JSONException e) {
+            throw new HumanAPIException(e);
+        }
+    }
+
+    /**
+     * Execute API GET request and return string result
+     *
+     * @param path path to API resource
+     * @param parameters extra parameters
+     * @return result returned from server
+     * @throws HumanAPIException
+     */
+    private String executeBase(String path, Map<String, Object> parameters) throws HumanAPIException {
         String url = apiRoot + path;
         logger.info(String.format("GET %s %s", url, parameters.toString()));
         try {
@@ -116,10 +164,8 @@ public class HumanAPIClient {
                 throw new HumanAPIException(String.format("Error response: [%d]", res.http().getResponseCode()));
             }
             logger.info("done, response [200]");
-            return new JSONObject(res.toString());
+            return res.toString();
         } catch (IOException e) {
-            throw new HumanAPIException(e);
-        } catch (JSONException e) {
             throw new HumanAPIException(e);
         }
     }
@@ -132,5 +178,10 @@ public class HumanAPIClient {
     /** Builds ProfileEntity */
     public ProfileEntity profileEntity() {
         return new ProfileEntity(this);
+    }
+
+    /** Builds BloodGlucoseEntity */
+    public BloodGlucoseEntity bloogGlucoseEntity() {
+        return new BloodGlucoseEntity(this);
     }
 }

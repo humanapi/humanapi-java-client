@@ -14,6 +14,6 @@ public class HumanEntity extends AbstractEntity {
     }
 
     public JSONObject get() throws HumanAPIException {
-        return this.client.execute("/");
+        return client.execute("/");
     }
 }

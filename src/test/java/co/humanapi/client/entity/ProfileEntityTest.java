@@ -10,7 +10,7 @@ import static org.testng.Assert.assertNotNull;
 public class ProfileEntityTest {
     @Test
     public void testGet() throws Exception {
-        HumanAPIClient client = new HumanAPIClient("demo");
+        HumanAPIClient client = new HumanAPIClient();
         ProfileEntity profileEntity = client.profileEntity();
 
         JSONObject res = profileEntity.get();

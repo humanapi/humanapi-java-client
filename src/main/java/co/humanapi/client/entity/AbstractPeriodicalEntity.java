@@ -1,7 +1,7 @@
 package co.humanapi.client.entity;
 
 /**
- * Created by yuri on 02/05/14.
+ * Base periodical entity class.
  */
 public class AbstractPeriodicalEntity {
 }
