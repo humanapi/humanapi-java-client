@@ -10,7 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Base measurement entity class.
+ * Base class for data types that are discrete measurements and
+ * occur at a point in time.
  */
 public class AbstractMeasurementEntity extends AbstractEntity {
 

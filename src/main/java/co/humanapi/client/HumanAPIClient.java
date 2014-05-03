@@ -192,4 +192,29 @@ public class HumanAPIClient {
     public BloodPressureEntity bloogPressureEntity() {
         return new BloodPressureEntity(this);
     }
+
+    /** Builds BmiEntity */
+    public BmiEntity bmiEntity() {
+        return new BmiEntity(this);
+    }
+
+    /** Builds BodyFatEntity */
+    public BodyFatEntity bodyFatEntity() {
+        return new BodyFatEntity(this);
+    }
+
+    /** Builds HeartRateEntity */
+    public HeartRateEntity heartRateEntity() {
+        return new HeartRateEntity(this);
+    }
+
+    /** Builds HeightEntity */
+    public HeightEntity heightEntity() {
+        return new HeightEntity(this);
+    }
+
+    /** Builds WeightEntity */
+    public WeightEntity weightEntity() {
+        return new WeightEntity(this);
+    }
 }
