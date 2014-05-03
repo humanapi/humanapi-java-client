@@ -1,9 +1,5 @@
 # HumanAPI Java client
 
-## Installation
-
-TODO
-
 ## Usage
 
 1) Create client instance:
