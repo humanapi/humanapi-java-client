@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class SleepEntity extends AbstractPeriodicalEntity {
 
     public SleepEntity(HumanAPIClient client) {
-        super(client, "/sleeps");
+        super(client, "/human/sleeps");
     }
 }

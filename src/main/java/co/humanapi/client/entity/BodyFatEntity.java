@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class BodyFatEntity extends AbstractMeasurementEntity {
 
     public BodyFatEntity(HumanAPIClient client) {
-        super(client, "/body_fat");
+        super(client, "/human/body_fat");
     }
 }

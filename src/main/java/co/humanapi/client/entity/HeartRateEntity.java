@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class HeartRateEntity extends AbstractMeasurementEntity {
 
     public HeartRateEntity(HumanAPIClient client) {
-        super(client, "/heart_rate");
+        super(client, "/human/heart_rate");
     }
 }

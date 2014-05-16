@@ -15,6 +15,6 @@ public class GeneticTraitEntity extends AbstractEntity {
     }
 
     public JSONArray list() throws HumanAPIException {
-        return client.executeForArray("/genetic/traits");
+        return client.executeForArray("/human/genetic/traits");
     }
 }

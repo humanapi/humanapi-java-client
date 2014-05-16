@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class BmiEntity extends AbstractMeasurementEntity {
 
     public BmiEntity(HumanAPIClient client) {
-        super(client, "/bmi");
+        super(client, "/human/bmi");
     }
 }

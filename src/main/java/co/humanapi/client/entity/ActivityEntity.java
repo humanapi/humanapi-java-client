@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class ActivityEntity extends AbstractPeriodicalEntity {
 
     public ActivityEntity(HumanAPIClient client) {
-        super(client, "/activities");
+        super(client, "/human/activities");
     }
 }

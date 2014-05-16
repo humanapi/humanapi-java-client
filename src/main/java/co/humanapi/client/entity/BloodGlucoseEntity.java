@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class BloodGlucoseEntity extends AbstractMeasurementEntity {
 
     public BloodGlucoseEntity(HumanAPIClient client) {
-        super(client, "/blood_glucose");
+        super(client, "/human/blood_glucose");
     }
 }

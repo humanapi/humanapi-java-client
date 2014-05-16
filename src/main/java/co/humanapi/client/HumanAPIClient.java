@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class HumanAPIClient {
 
     /** URL for accessing the API */
-    private static final String apiRoot = "https://api.humanapi.co/v1/human";
+    public static final String apiRoot = "https://api.humanapi.co/v1";
 
     /** Logger instance */
     private static Logger logger = Logger.getLogger(HumanAPIClient.class.getName());
@@ -63,6 +63,11 @@ public class HumanAPIClient {
      */
     public void setDebug(Boolean debug) {
         this.debug = debug;
+    }
+
+    /** Get debug flag */
+    public Boolean getDebug() {
+        return debug;
     }
 
     /**
@@ -236,5 +241,15 @@ public class HumanAPIClient {
     /** Builds GeneticTraitEntity */
     public GeneticTraitEntity geneticTraitEntity() {
         return new GeneticTraitEntity(this);
+    }
+
+    /**
+     * Build AppUserEntity
+     *
+     * @param appId Application Id
+     * @param appQueryKey Application query key
+     */
+    public AppUserEntity appUserEntity(String appId, String appQueryKey) {
+        return new AppUserEntity(this, appId,appQueryKey);
     }
 }

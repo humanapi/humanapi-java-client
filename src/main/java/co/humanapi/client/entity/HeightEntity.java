@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class HeightEntity extends AbstractMeasurementEntity {
 
     public HeightEntity(HumanAPIClient client) {
-        super(client, "/height");
+        super(client, "/human/height");
     }
 }

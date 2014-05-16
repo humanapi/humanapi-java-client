@@ -8,6 +8,6 @@ import co.humanapi.client.HumanAPIClient;
 public class LocationEntity extends AbstractPeriodicalEntity {
 
     public LocationEntity(HumanAPIClient client) {
-        super(client, "/locations");
+        super(client, "/human/locations");
     }
 }

@@ -14,6 +14,6 @@ public class ProfileEntity extends AbstractEntity {
     }
 
     public JSONObject get() throws HumanAPIException {
-        return client.execute("/profile");
+        return client.execute("/human/profile");
     }
 }
