@@ -8,7 +8,7 @@ import us.monoid.json.JSONObject;
 import us.monoid.web.Resty;
 import us.monoid.web.TextResource;
 
-import javax.xml.bind.DatatypeConverter;
+import net.iharder.Base64;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -115,8 +115,7 @@ public class AppUserEntity extends AbstractEntity {
     private Resty getResty() {
         Resty resty = new Resty();
         String auth = appQueryKey + ":";
-        resty.withHeader("Authorization", "Basic " +
-                DatatypeConverter.printBase64Binary(auth.getBytes()));
+        resty.withHeader("Authorization", "Basic " + Base64.encodeBytes(auth.getBytes()));
         return resty;
     }
 
