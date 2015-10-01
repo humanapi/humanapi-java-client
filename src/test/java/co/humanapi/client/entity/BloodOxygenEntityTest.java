@@ -15,7 +15,7 @@ public class BloodOxygenEntityTest {
     public void setUp() throws Exception {
         HumanAPIClient client = new HumanAPIClient();
         client.setDebug(true);
-        bloodOxygenEntity = client.bloogOxygenEntity();
+        bloodOxygenEntity = client.bloodOxygenEntity();
     }
 
     @Test
