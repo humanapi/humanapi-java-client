@@ -15,7 +15,7 @@ public class BloodPressureEntityTest {
     public void setUp() throws Exception {
         HumanAPIClient client = new HumanAPIClient();
         //client.setDebug(true);
-        bloodPressureEntity = client.bloogPressureEntity();
+        bloodPressureEntity = client.bloodPressureEntity();
     }
 
     @Test

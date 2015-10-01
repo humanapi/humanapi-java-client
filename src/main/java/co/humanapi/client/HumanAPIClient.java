@@ -184,17 +184,17 @@ public class HumanAPIClient {
     }
 
     /** Builds BloodGlucoseEntity */
-    public BloodGlucoseEntity bloogGlucoseEntity() {
+    public BloodGlucoseEntity bloodGlucoseEntity() {
         return new BloodGlucoseEntity(this);
     }
 
     /** Builds BloodOxygenEntity */
-    public BloodOxygenEntity bloogOxygenEntity() {
+    public BloodOxygenEntity bloodOxygenEntity() {
         return new BloodOxygenEntity(this);
     }
 
     /** Builds BloodPressureEntity */
-    public BloodPressureEntity bloogPressureEntity() {
+    public BloodPressureEntity bloodPressureEntity() {
         return new BloodPressureEntity(this);
     }
 

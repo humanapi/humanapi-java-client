@@ -19,7 +19,7 @@ public class BloodGlucoseEntityTest {
     public void setUp() throws Exception {
         HumanAPIClient client = new HumanAPIClient();
         //client.setDebug(true);
-        bloodGlucoseEntity = client.bloogGlucoseEntity();
+        bloodGlucoseEntity = client.bloodGlucoseEntity();
     }
 
     @Test
